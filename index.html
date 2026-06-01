@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Politique de Confidentialité — NiameyGo</title>
+  <style>
+    :root {
+      --primary: #e85d04;
+      --bg: #0f0e0d;
+      --card: #1c1a18;
+      --border: #2e2b27;
+      --text: #f5f0ea;
+      --muted: #9e9589;
+      --faint: #5c5750;
+      --success: #2ecc71;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      width: 44px; height: 44px;
+      background: var(--primary);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; font-weight: 800; color: #fff;
+      flex-shrink: 0;
+    }
+    .brand { font-size: 20px; font-weight: 700; }
+    .brand span { color: var(--primary); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--card) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 60px 24px 48px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(232,93,4,.12);
+      border: 1px solid rgba(232,93,4,.3);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 13px; color: var(--primary); font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .hero h1 { font-size: clamp(28px, 5vw, 42px); font-weight: 800; margin-bottom: 12px; }
+    .hero p { color: var(--muted); font-size: 16px; max-width: 560px; margin: 0 auto 20px; }
+    .last-updated {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 6px 14px;
+      font-size: 13px; color: var(--muted);
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── TOC ── */
+    .toc {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 48px;
+    }
+    .toc h3 {
+      font-size: 14px; font-weight: 700; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+    .toc ol { padding-left: 20px; }
+    .toc li { margin-bottom: 8px; }
+    .toc a { color: var(--primary); text-decoration: none; font-size: 14px; }
+    .toc a:hover { text-decoration: underline; }
+
+    /* ── SECTIONS ── */
+    .section { margin-bottom: 48px; }
+    .section-header {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 20px;
+    }
+    .section-num {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: rgba(232,93,4,.12);
+      border: 1px solid rgba(232,93,4,.3);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 700; color: var(--primary);
+    }
+    h2 { font-size: 22px; font-weight: 700; color: var(--text); }
+    p { color: var(--muted); margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── DATA TABLE ── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .data-table th {
+      background: var(--card);
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      border-bottom: 1px solid var(--border);
+    }
+    .data-table td {
+      padding: 12px 16px;
+      font-size: 14px;
+      color: var(--muted);
+      border-bottom: 1px solid rgba(46,43,39,.5);
+      vertical-align: top;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table td:first-child { color: var(--text); font-weight: 600; }
+
+    /* ── HIGHLIGHT BOXES ── */
+    .box {
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin: 20px 0;
+      border: 1px solid;
+    }
+    .box-info { background: rgba(0,180,216,.08); border-color: rgba(0,180,216,.25); }
+    .box-warn { background: rgba(243,156,18,.08); border-color: rgba(243,156,18,.25); }
+    .box-success { background: rgba(46,204,113,.08); border-color: rgba(46,204,113,.25); }
+    .box p { margin: 0; }
+    .box-info p { color: #5dd4f0; }
+    .box-warn p { color: #f5c060; }
+    .box-success p { color: #5de0a0; }
+    .box-title { font-weight: 700; margin-bottom: 6px !important; }
+
+    /* ── LIST ── */
+    ul.checks { list-style: none; padding: 0; margin: 14px 0; }
+    ul.checks li {
+      display: flex; gap: 10px; align-items: flex-start;
+      color: var(--muted); font-size: 15px;
+      margin-bottom: 10px;
+    }
+    ul.checks li::before {
+      content: '✓';
+      color: var(--success);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── CONTACT ── */
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      margin-top: 48px;
+    }
+    .contact-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+    .contact-card p { color: var(--muted); margin-bottom: 20px; }
+    .contact-card a {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 12px;
+      padding: 12px 28px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 15px;
+    }
+    .contact-card a:hover { opacity: .88; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--faint);
+    }
+    footer a { color: var(--primary); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .hero { padding: 40px 16px 32px; }
+      .container { padding: 32px 16px 60px; }
+      .data-table { font-size: 13px; }
+      .data-table th, .data-table td { padding: 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">N</div>
+  <div>
+    <div class="brand">Niamey<span>Go</span></div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-badge">🔒 Confidentialité</div>
+  <h1>Politique de Confidentialité</h1>
+  <p>Nous nous engageons à protéger vos données personnelles. Ce document explique clairement comment nous les collectons, utilisons et protégeons.</p>
+  <div class="last-updated">📅 Dernière mise à jour : 1er juin 2026</div>
+</div>
+
+<div class="container">
+
+  <!-- TABLE DES MATIÈRES -->
+  <div class="toc">
+    <h3>Sommaire</h3>
+    <ol>
+      <li><a href="#s1">Qui sommes-nous ?</a></li>
+      <li><a href="#s2">Données collectées</a></li>
+      <li><a href="#s3">Pourquoi nous collectons ces données</a></li>
+      <li><a href="#s4">Partage des données</a></li>
+      <li><a href="#s5">Conservation des données</a></li>
+      <li><a href="#s6">Sécurité</a></li>
+      <li><a href="#s7">Vos droits</a></li>
+      <li><a href="#s8">Localisation</a></li>
+      <li><a href="#s9">Données des mineurs</a></li>
+      <li><a href="#s10">Modifications de cette politique</a></li>
+      <li><a href="#s11">Nous contacter</a></li>
+    </ol>
+  </div>
+
+  <!-- 1 -->
+  <div class="section" id="s1">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>Qui sommes-nous ?</h2>
+    </div>
+    <p>NiameyGo est une application mobile de mise en relation entre clients et chauffeurs de taxi à Niamey, Niger. L'application est éditée et exploitée par NiameyGo.</p>
+    <p>En utilisant l'application NiameyGo, vous acceptez les pratiques décrites dans cette politique de confidentialité.</p>
+  </div>
+
+  <!-- 2 -->
+  <div class="section" id="s2">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2>Données collectées</h2>
+    </div>
+    <p>Nous collectons uniquement les données nécessaires au bon fonctionnement du service.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Donnée</th>
+          <th>Qui est concerné</th>
+          <th>Pourquoi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Numéro de téléphone</td>
+          <td>Clients & Chauffeurs</td>
+          <td>Identification et authentification via SMS</td>
+        </tr>
+        <tr>
+          <td>Nom complet</td>
+          <td>Clients & Chauffeurs</td>
+          <td>Affichage dans l'application</td>
+        </tr>
+        <tr>
+          <td>Position GPS en temps réel</td>
+          <td>Clients & Chauffeurs</td>
+          <td>Matching taxi-client, calcul d'itinéraire</td>
+        </tr>
+        <tr>
+          <td>Numéro de permis de conduire</td>
+          <td>Chauffeurs uniquement</td>
+          <td>Vérification et validation du compte chauffeur</td>
+        </tr>
+        <tr>
+          <td>Numéro de plaque d'immatriculation</td>
+          <td>Chauffeurs uniquement</td>
+          <td>Vérification et affichage aux clients</td>
+        </tr>
+        <tr>
+          <td>Type et modèle du véhicule</td>
+          <td>Chauffeurs uniquement</td>
+          <td>Information pour les clients</td>
+        </tr>
+        <tr>
+          <td>Historique des courses</td>
+          <td>Clients & Chauffeurs</td>
+          <td>Affichage de l'historique, calcul des gains</td>
+        </tr>
+        <tr>
+          <td>Notes et évaluations</td>
+          <td>Clients & Chauffeurs</td>
+          <td>Système de réputation</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="box box-info">
+      <p class="box-title">ℹ️ Ce que nous ne collectons PAS</p>
+      <p>Nous ne collectons pas de données bancaires, de photos, d'identifiants de réseaux sociaux, ni de données de navigation sur d'autres applications.</p>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="section" id="s3">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <h2>Pourquoi nous collectons ces données</h2>
+    </div>
+    <ul class="checks">
+      <li>Authentifier les utilisateurs de manière sécurisée via leur numéro de téléphone</li>
+      <li>Mettre en relation les clients avec les chauffeurs disponibles sur leur trajet</li>
+      <li>Calculer le prix de la course en fonction de la distance et des événements tarifaires</li>
+      <li>Afficher les informations du chauffeur au client (nom, véhicule, note)</li>
+      <li>Calculer et enregistrer les gains journaliers des chauffeurs</li>
+      <li>Permettre aux chauffeurs de recevoir et confirmer les demandes de course</li>
+      <li>Améliorer la qualité du service via les évaluations</li>
+      <li>Afficher des annonces importantes aux utilisateurs concernés</li>
+    </ul>
+  </div>
+
+  <!-- 4 -->
+  <div class="section" id="s4">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <h2>Partage des données</h2>
+    </div>
+    <p>Nous ne vendons jamais vos données personnelles à des tiers. Les données sont partagées uniquement dans les cas suivants :</p>
+    <ul class="checks">
+      <li><strong>Entre client et chauffeur matched :</strong> le nom, le numéro de téléphone et la position du client sont partagés avec le chauffeur assigné à sa course, et inversement.</li>
+      <li><strong>Firebase (Google) :</strong> nos données sont hébergées sur Firebase (Google Cloud). Firebase est soumis à la politique de confidentialité de Google.</li>
+      <li><strong>Administrateurs NiameyGo :</strong> l'équipe d'administration accède aux données pour valider les comptes chauffeurs, gérer les litiges et améliorer le service.</li>
+    </ul>
+    <div class="box box-warn">
+      <p class="box-title">⚠️ Partage d'informations pendant une course</p>
+      <p>Pendant une course active, votre nom et numéro de téléphone sont visibles par l'autre partie (client ou chauffeur) pour faciliter la mise en relation. Ces informations ne sont plus accessibles après la fin de la course.</p>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="section" id="s5">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2>Conservation des données</h2>
+    </div>
+    <p>Vos données sont conservées aussi longtemps que votre compte est actif. En cas de suppression de compte :</p>
+    <ul class="checks">
+      <li>Votre profil (nom, téléphone) est supprimé sous <strong>30 jours</strong></li>
+      <li>L'historique de vos courses est anonymisé (le nom est remplacé par "Utilisateur supprimé")</li>
+      <li>Les données de localisation ne sont jamais stockées de manière permanente — elles sont uniquement utilisées en temps réel pendant une session active</li>
+      <li>Les données financières (gains, commissions) sont conservées <strong>12 mois</strong> à des fins comptables, conformément à la réglementation en vigueur</li>
+    </ul>
+  </div>
+
+  <!-- 6 -->
+  <div class="section" id="s6">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2>Sécurité</h2>
+    </div>
+    <p>Nous mettons en œuvre des mesures techniques et organisationnelles pour protéger vos données :</p>
+    <ul class="checks">
+      <li>Authentification par SMS via Firebase Auth — vos données ne sont accessibles qu'à vous</li>
+      <li>Règles de sécurité Firebase strictes — chaque utilisateur ne peut lire et modifier que ses propres données</li>
+      <li>Les comptes chauffeurs sont validés manuellement par un administrateur avant activation</li>
+      <li>Communication chiffrée via HTTPS/TLS pour tous les échanges de données</li>
+    </ul>
+    <div class="box box-success">
+      <p class="box-title">✅ Authentification sécurisée</p>
+      <p>Nous utilisons l'authentification par numéro de téléphone (OTP SMS). Aucun mot de passe n'est stocké dans notre base de données.</p>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="section" id="s7">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <h2>Vos droits</h2>
+    </div>
+    <p>Conformément aux réglementations applicables sur la protection des données, vous disposez des droits suivants :</p>
+    <ul class="checks">
+      <li><strong>Droit d'accès :</strong> vous pouvez demander une copie de toutes les données que nous détenons sur vous</li>
+      <li><strong>Droit de rectification :</strong> vous pouvez modifier votre nom directement depuis l'application (Profil → Modifier)</li>
+      <li><strong>Droit à l'effacement :</strong> vous pouvez demander la suppression complète de votre compte et de vos données</li>
+      <li><strong>Droit d'opposition :</strong> vous pouvez vous opposer à certains traitements de vos données</li>
+      <li><strong>Droit à la portabilité :</strong> vous pouvez demander vos données dans un format lisible</li>
+    </ul>
+    <p>Pour exercer ces droits, consultez notre <a href="data-deletion.html" style="color:var(--primary)">procédure de suppression de données</a> ou contactez-nous à l'adresse ci-dessous.</p>
+  </div>
+
+  <!-- 8 -->
+  <div class="section" id="s8">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <h2>Localisation</h2>
+    </div>
+    <p>NiameyGo utilise votre position GPS pour fonctionner. Voici comment :</p>
+    <ul class="checks">
+      <li><strong>Côté client :</strong> votre position est utilisée au moment de créer une demande de course pour trouver le taxi le plus proche sur votre trajet. Elle n'est pas stockée en permanence.</li>
+      <li><strong>Côté chauffeur :</strong> votre position est mise à jour en temps réel pendant une session active (toutes les 20 mètres de déplacement) pour permettre aux clients de vous trouver. Elle est supprimée à la fin de la session.</li>
+    </ul>
+    <div class="box box-warn">
+      <p class="box-title">⚠️ Localisation en arrière-plan</p>
+      <p>Pour les chauffeurs, l'application peut accéder à votre localisation même lorsqu'elle est en arrière-plan, afin de maintenir votre position à jour pendant une session active. Vous pouvez désactiver cette permission dans les paramètres de votre téléphone à tout moment.</p>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="section" id="s9">
+    <div class="section-header">
+      <div class="section-num">9</div>
+      <h2>Données des mineurs</h2>
+    </div>
+    <p>NiameyGo est destiné aux personnes âgées de <strong>18 ans et plus</strong>. Nous ne collectons pas sciemment de données personnelles concernant des mineurs. Si vous pensez qu'un mineur a créé un compte, contactez-nous immédiatement à l'adresse ci-dessous pour que nous procédions à la suppression du compte.</p>
+  </div>
+
+  <!-- 10 -->
+  <div class="section" id="s10">
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <h2>Modifications de cette politique</h2>
+    </div>
+    <p>Nous pouvons mettre à jour cette politique de confidentialité à tout moment. En cas de modification substantielle, nous vous en informerons via une annonce dans l'application. La date de dernière mise à jour est indiquée en haut de cette page.</p>
+    <p>En continuant à utiliser NiameyGo après une modification, vous acceptez la nouvelle politique.</p>
+  </div>
+
+  <!-- 11 -->
+  <div class="section" id="s11">
+    <div class="section-header">
+      <div class="section-num">11</div>
+      <h2>Nous contacter</h2>
+    </div>
+    <p>Pour toute question concernant cette politique de confidentialité ou pour exercer vos droits :</p>
+  </div>
+
+  <div class="contact-card">
+    <h3>📬 Contacter NiameyGo</h3>
+    <p>Notre équipe répond dans un délai de 72 heures ouvrées.</p>
+    <a href="mailto:privacy@niameygo.ne">niameygocompte@gmail.com</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 NiameyGo · Niamey, Niger &nbsp;|&nbsp; <a href="data-deletion.html">Suppression de données</a> &nbsp;|&nbsp; <a href="privacy-policy.html">Politique de confidentialité</a></p>
+</footer>
+
+</body>
+</html>
